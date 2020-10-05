@@ -12,28 +12,32 @@ First, call Pincet in your code:
 import pincet from "pincet";
 ```
 
-
-At the moment, Pincet supports some operations for deep nested arrays. For instance: 
+Pincet supports some plain simple methods, such as:
 ```
 const arr = ['one', 'two', 'three'];
 const first = findFirst<string>(arr);
 console.log(first); // 'one'
 ```
 
-As aforementioned, Pincet supports nested arrays. So:
-
-But of course, you can do pretty advanced stuff with it, such as:
+However, you can use Pincet for nested arrays as well. For instance:
 ```
 const arr = [[], [[]], ['one'], 'two', 'three'];
 const first = findFirst<string>(arr);
 console.log(first); // 'one'
 ```
 
-Or, if you want more values:
+You can also search for more values, if you prefer:
 ```
 const arr = [[], ['one'], ['two']];
 const first = findFirstNumber<string>(arr, 2);
 console.log(first); // ['one', 'two']
+```
+
+Or revert it:
+```
+const arr = [[], ['one'], ['two']];
+const last = findLastNumber<string>(arr, 2);
+console.log(last); // ['two', 'two']
 ```
 
 You can also find values with a predicate:
