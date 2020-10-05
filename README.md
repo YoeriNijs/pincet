@@ -80,7 +80,7 @@ const people: Person[][] = [
 
 const predicate = (person: Person) => person.age === 30;
 const result = findWithPredicate<Person>(people, predicate);
-console.log(result); // { name: 'AdultC', age: 30 }
+console.log(result); // [{ name: 'AdultC', age: 30 }]
 ```
 
 ## Supported methods
