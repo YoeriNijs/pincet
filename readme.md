@@ -3,6 +3,16 @@
 ## What is does
 Pincet (Dutch for 'tweezers') is a plain simple array utility that is currently under development. It is written in Typescript and, therefore, type safe.
 
+## Install
+`npm i pincet`
+
+## Usage
+First, call Pincet in your code:
+```
+import pincet from "pincet";
+```
+
+
 At the moment, Pincet supports some operations for deep nested arrays. For instance: 
 ```
 const arr = ['one', 'two', 'three'];
@@ -63,9 +73,6 @@ console.log(result); // { name: 'AdultC', age: 30 }
 - `findLast<T>(values: T[])`
 - `findLastNumber<T>(values: T[], nValues: number)`
 - `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean)`
-
-## Install
-`npm i pincet`
 
 ## Run tests
 - Checkout locally
