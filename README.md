@@ -47,27 +47,39 @@ interface Person {
     age: number
 }
 
-const PEOPLE: Person[] = [
-    {
-        name: 'PersonA',
-        age: 40
-    },
-    {
-        name: 'PersonB',
-        age: 20
-    },
-    {
-        name: 'PersonC',
-        age: 30
-    },
-    {
-        name: 'PersonD',
-        age: 20
-    }
+const people: Person[][] = [
+    [
+        {
+            name: 'ChildA',
+            age: 10
+        },
+        {
+            name: 'ChildB',
+            age: 8
+        },
+    ],
+    [
+        {
+            name: 'AdultA',
+            age: 40
+        },
+        {
+            name: 'AdultB',
+            age: 20
+        },
+        {
+            name: 'AdultC',
+            age: 30
+        },
+        {
+            name: 'AdultD',
+            age: 20
+        }
+    ]
 ];
 
 const predicate = (person: Person) => person.age === 30;
-const result = findWithPredicate<Person>(PEOPLE, predicate);
+const result = findWithPredicate<Person>(people, predicate);
 console.log(result); // { name: 'AdultC', age: 30 }
 ```
 
