@@ -47,3 +47,8 @@ test('Should return empty array when array is empty', () => {
     const result = findWithPredicate<Person>([], () => true);
     expect(result.length).toBe(0);
 });
+
+test('Should return empty array when predicate returns false', () => {
+    const result = findWithPredicate<Person>(PEOPLE, () => false);
+    expect(result.length).toBe(0);
+});
