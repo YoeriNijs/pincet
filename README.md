@@ -15,28 +15,28 @@ import pincet from "pincet";
 Pincet supports some plain simple methods, such as:
 ```
 const arr = ['one', 'two', 'three'];
-const first = findFirst<string>(arr);
+const first = pincet.findFirst<string>(arr);
 console.log(first); // 'one'
 ```
 
 However, you can use Pincet for nested arrays as well. For instance:
 ```
 const arr = [[], [[]], ['one'], 'two', 'three'];
-const first = findFirst<string>(arr);
+const first = pincet.findFirst<string>(arr);
 console.log(first); // 'one'
 ```
 
 You can also search for more values, if you prefer:
 ```
 const arr = [[], ['one'], ['two']];
-const first = findFirstNumber<string>(arr, 2);
+const first = pincet.findFirstNumber<string>(arr, 2);
 console.log(first); // ['one', 'two']
 ```
 
 Or revert it:
 ```
 const arr = [[], ['one'], ['two']];
-const last = findLastNumber<string>(arr, 2);
+const last = pincet.findLastNumber<string>(arr, 2);
 console.log(last); // ['two', 'one']
 ```
 
@@ -79,11 +79,11 @@ const people: Person[][] = [
 ];
 
 const predicate = (person: Person) => person.age === 30;
-const result = findWithPredicate<Person>(people, predicate);
+const result = pincet.findWithPredicate<Person>(people, predicate);
 console.log(result); // [{ name: 'AdultC', age: 30 }]
 ```
 
-If you like syntactic sugar, you can use `findAny<Person>(people, predicate)` as well.
+If you like syntactic sugar, you can use `pincet.findAny<Person>(people, predicate)` as well.
 
 Interested in more results? Just split it:
 
@@ -112,7 +112,7 @@ const arr: any[] = [
 ];
 
 const predicate = (value: any) => value.valid;
-const [valid, invalid]  = splitByPredicate<Valid, Invalid, any>(arr, predicate);
+const [valid, invalid]  = pincet.splitByPredicate<Valid, Invalid, any>(arr, predicate);
 console.log(valid); // [{ id: '1', valid: true }, { id: '3', valid: true }];
 console.log(invalid); // [{ id: '2', valid: false }];
 ```
@@ -120,20 +120,20 @@ console.log(invalid); // [{ id: '2', valid: false }];
 You can also revert it:
 ```
 const predicate = (value: any) => !value.valid;
-const [invalid, valid] = splitByPredicate<Invalid, Valid, any>(arr, predicate);
+const [invalid, valid] = pincet.splitByPredicate<Invalid, Valid, any>(arr, predicate);
 ```
 
 Wait, one more thing: flatten to the rescue! By default all arrays are flatten.
 ```
 const arr = ['aap', ['noot'], [[['mies']]]];
-const result = flatten(arr);
+const result = pincet.flatten(arr);
 console.log(result); // ['aap', 'noot', 'mies']
 ```
 
 But you can specify a depth. For example:
 ```
 const arr = ['aap', ['noot'], [[['mies']]]];
-const result = flatten(arr, 1);
+const result = pincet.flatten(arr, 1);
 console.log(result); // ['aap', 'noot', [['mies']]]
 ```
 
