@@ -1,11 +1,15 @@
 {
   "name": "pincet",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "For precise array operations only",
   "repository": {
     "type": "git",
     "url": "git@github.com:YoeriNijs/pincet.git"
   },
+  "licenses": [{
+    "type": "GPL-3.0",
+    "url": "https://raw.githubusercontent.com/YoeriNijs/pincet/main/LICENSE"
+  }],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
