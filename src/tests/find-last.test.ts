@@ -18,4 +18,9 @@ test('Should pick the last of a nested array when there is an empty array', () =
     expect(last).toBe('three');
 });
 
+test('Should return undefined when the array is empty', () => {
+    const last = findLast<string>([]);
+    expect(last).toBeUndefined();
+});
+
 

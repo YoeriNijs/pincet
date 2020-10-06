@@ -18,4 +18,9 @@ test('Should pick the first of a nested array when there is an empty array', () 
     expect(first).toBe('one');
 });
 
+test('Should return undefined when the array is empty', () => {
+    const first = findFirst<string>([]);
+    expect(first).toBeUndefined();
+});
+
 

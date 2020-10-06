@@ -19,6 +19,11 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test"
+    }
+  },
   "files": [
     "lib/**/*"
   ],
@@ -27,6 +32,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.14",
+    "husky": "^4.3.0",
     "jest": "^26.5.0",
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.1",

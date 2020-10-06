@@ -24,6 +24,11 @@ test('Should pick all values of an array when nValues is above real size', () =>
     expect(first).toEqual(['one', 'two', 'three']);
 });
 
+test('Should return undefined when the array is empty', () => {
+    const first = findFirstNumber<string>([], 1);
+    expect(first).toBeUndefined();
+});
+
 test('Should pick the first one of a nested array', () => {
     const arr = [['one'], ['two'], ['three']];
     const first = findFirstNumber<string>(arr, 1);
