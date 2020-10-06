@@ -83,12 +83,69 @@ const result = findWithPredicate<Person>(people, predicate);
 console.log(result); // [{ name: 'AdultC', age: 30 }]
 ```
 
+If you like syntactic sugar, you can use `findAny<Person>(people, predicate)` as well.
+
+Interested in more results? Just split it:
+
+```
+interface Valid {
+    valid: true;
+}
+
+interface Invalid {
+    valid: false;
+}
+
+const arr: any[] = [
+    {
+        id: '1',
+        valid: true
+    },
+    {
+        id: '2',
+        valid: false
+    },
+    {
+        id: '3',
+        valid: true
+    },
+];
+
+const predicate = (value: any) => value.valid;
+const [valid, invalid]  = splitByPredicate<Valid, Invalid, any>(arr, predicate);
+console.log(valid); // [{ id: '1', valid: true }, { id: '3', valid: true }];
+console.log(invalid); // [{ id: '2', valid: false }];
+```
+
+You can also revert it:
+```
+const predicate = (value: any) => !value.valid;
+const [invalid, valid] = splitByPredicate<Invalid, Valid, any>(arr, predicate);
+```
+
+Wait, one more thing: flatten to the rescue! By default all arrays are flatten.
+```
+const arr = ['aap', ['noot'], [[['mies']]]];
+const result = flatten(arr);
+console.log(result); // ['aap', 'noot', 'mies']
+```
+
+But you can specify a depth. For example:
+```
+const arr = ['aap', ['noot'], [[['mies']]]];
+const result = flatten(arr, 1);
+console.log(result); // ['aap', 'noot', [['mies']]]
+```
+
 ## Supported methods
 - `findFirst<T>(values: T[])`
 - `findFirstNumber<T>(values: T[], nValues: number)`
 - `findLast<T>(values: T[])`
 - `findLastNumber<T>(values: T[], nValues: number)`
 - `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean)`
+- `findAny<T>(values: T[], guard: (value: T) => boolean`
+- `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
+- `flatten(values: any[], depth: number = Infinity)`
 
 ## Run tests
 - Checkout locally
