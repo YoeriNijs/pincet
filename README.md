@@ -37,7 +37,7 @@ Or revert it:
 ```
 const arr = [[], ['one'], ['two']];
 const last = findLastNumber<string>(arr, 2);
-console.log(last); // ['two', 'two']
+console.log(last); // ['two', 'one']
 ```
 
 You can also find values with a predicate:
