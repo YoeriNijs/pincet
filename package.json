@@ -1,15 +1,12 @@
 {
   "name": "pincet",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "For precise array operations only",
   "repository": {
     "type": "git",
     "url": "git@github.com:YoeriNijs/pincet.git"
   },
-  "licenses": [{
-    "type": "GPL-3.0",
-    "url": "https://raw.githubusercontent.com/YoeriNijs/pincet/main/LICENSE"
-  }],
+  "license": "GPL-3.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -31,9 +28,8 @@
   "files": [
     "lib/**/*"
   ],
-  "keywords": [],
+  "keywords": ["array", "flatten", "utility", "collections", "split", "predicate"],
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "husky": "^4.3.0",
