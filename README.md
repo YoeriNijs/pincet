@@ -134,6 +134,15 @@ const result = pincet.isEqual(arr1, arr2);
 console.log(result); // true
 ```
 
+```
+const arr1 = ['aap', 'noot', 'mies'];
+const arr2 = ['aap', 'noot', 'mies'];
+const arr3 = ['aap', 'noot', 'wim'];
+const arr4 = ['aap', 'noot', 'mies'];
+const result = pincet.isEqual(arr1, arr2, arr3, arr4);
+console.log(result); // false
+```
+
 ### Map values
 ```
 const arr = [0, 1, 2];
