@@ -1,6 +1,6 @@
 # Pincet: for precise array operations only
 
-## What is does
+## What it does
 Pincet (Dutch for 'tweezers') is a plain simple - but still very powerful - array utility that is currently under development. It is written in Typescript and, therefore, type safe.
 
 ## Install
