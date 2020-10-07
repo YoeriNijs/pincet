@@ -268,6 +268,8 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `replaceWithPredicate<T>(original: T, newValue: Partial<T>, predicate: (value: T) => boolean)`
 - `replaceAll<T>(originalValues: T[], newValue: Partial<T>)`
 - `replaceAllWithPredicate<T>(originalValues: T[], newValue: Partial<T>, predicate: (value: T) => boolean)`
+- `count(values: any[], depth: number = Infinity)`
+- `isEmpty(values: any[])`
 
 ## Run tests
 - Checkout locally
