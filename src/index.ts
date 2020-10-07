@@ -3,4 +3,7 @@ export * from './internal/find-first';
 export * from './internal/find-last';
 export * from './internal/find-predicate';
 export * from './internal/flatten';
+export * from './internal/is-equal';
+export * from './internal/map';
+export * from './internal/replace';
 export * from './internal/split-predicate';

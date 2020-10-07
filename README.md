@@ -1,7 +1,7 @@
 # Pincet: for precise array operations only
 
 ## What is does
-Pincet (Dutch for 'tweezers') is a plain simple array utility that is currently under development. It is written in Typescript and, therefore, type safe.
+Pincet (Dutch for 'tweezers') is a plain simple - but still very powerful - array utility that is currently under development. It is written in Typescript and, therefore, type safe.
 
 ## Install
 `npm i pincet`
@@ -9,9 +9,10 @@ Pincet (Dutch for 'tweezers') is a plain simple array utility that is currently 
 ## Usage
 First, call Pincet in your code:
 ```
-import pincet from "pincet";
+import * as pincet from 'pincet';
 ```
 
+### Find methods
 Pincet supports some plain simple methods, such as:
 ```
 const arr = ['one', 'two', 'three'];
@@ -85,6 +86,7 @@ console.log(result); // [{ name: 'AdultC', age: 30 }]
 
 If you like syntactic sugar, you can use `pincet.findAny<Person>(people, predicate)` as well.
 
+### Split values
 Interested in more results? Just split it:
 
 ```
@@ -123,6 +125,81 @@ const predicate = (value: any) => !value.valid;
 const [invalid, valid] = pincet.splitByPredicate<Invalid, Valid, any>(arr, predicate);
 ```
 
+### Equality checking
+Interested in equality? There is a method for that!
+```
+const arr1 = ['aap', ['noot', ['mies']]];
+const arr2 = ['aap', ['noot', ['mies']]];
+const result = pincet.isEqual(arr1, arr2);
+console.log(result); // true
+```
+
+### Map values
+```
+const arr = [0, 1, 2];
+const fn = (v: number) => `${v + 1}`;
+const result = pincet.map<number, string>(arr, fn);
+console.log(result); // ['1', '2', '3']
+```
+
+By default, the map method does not flatten you array. If you want to flat map, you can!
+```
+const arr = [1, [2, [3]]];
+const fn = (v: number) => v + 1;
+const result = pincet.flatMap<number, number>(arr, fn);
+console.log(result); // [2, 3, 4]
+```
+
+You can specify a depth, if you prefer. Here, we just pass a depth of 1:
+```
+const arr = [['aap', ['noot', ['mies']]]];
+const fn = (v: string | string[]) => Array.isArray(v) ? v : 'wim';
+const result = pincet.flatMap<string, string>(arr, fn, 1);
+console.log(result); // ['wim', ['noot', ['mies']]]
+```
+
+### Replace values
+Sometimes, you want to replace some values. Well, now you can with ease!
+```
+interface Person {
+    name: string;
+    gender: string;
+}
+
+const persons: Person[] = [
+    { name: 'Bradley Edward Manning', gender: 'man' },
+    { name: 'Nikkie de Jager', gender: 'man' }
+];
+
+const result = pincet.replaceAll<Person>(persons, { gender: 'woman' });
+console.log(result); // [ { name: 'Bradley Edward Manning', gender: 'woman' }, { name: 'Nikkie de Jager', gender: 'woman' } ]
+```
+
+Not interested in replacing all values? Just pass a predicate:
+```
+interface Person {
+    name: string;
+    gender: string;
+}
+
+const persons: Person[] = [
+    { name: 'Bradley Edward Manning', gender: 'man' },
+    { name: 'Nikkie de Jager', gender: 'man' }
+];
+const predicate = (person: Person) => person.name === 'Nikkie de Jager';
+
+const result = pincet.replaceAllWithPredicate<Person>(persons, { gender: 'woman' }, predicate);
+console.log(result); // [ { name: 'Bradley Edward Manning', gender: 'man' }, { name: 'Nikkie de Jager', gender: 'woman' } ]
+```
+
+Pincet supports replacing one value (optionally with predicate), if needed. Technically this is not array related, but may still be handy!
+```
+const person: Person = { name: 'Bradley Edward Manning', gender: 'man' };
+const result = pincet.replace<Person>(person, { gender: 'woman' });
+console.log(result); // { name: 'Bradley Edward Manning', gender: 'woman' }
+```
+
+### Flatten
 Wait, one more thing: flatten to the rescue! By default all arrays are flatten.
 ```
 const arr = ['aap', ['noot'], [[['mies']]]];
@@ -146,6 +223,13 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `findAny<T>(values: T[], guard: (value: T) => boolean`
 - `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
 - `flatten(values: any[], depth: number = Infinity)`
+- `isEqual<T>(...arrays: T[][]): boolean`
+- `map<S, T>(values: S[], fn: (v: S) => T)`
+- `flatMap<S, T>(values: any[], fn: ((v: S | S[]) => T | any) | ((v: S) => T), depth: number = Infinity)`
+- `replace<T>(original: T, newValue: Partial<T>)`
+- `replaceWithPredicate<T>(original: T, newValue: Partial<T>, predicate: (value: T) => boolean)`
+- `replaceAll<T>(originalValues: T[], newValue: Partial<T>)`
+- `replaceAllWithPredicate<T>(originalValues: T[], newValue: Partial<T>, predicate: (value: T) => boolean)`
 
 ## Run tests
 - Checkout locally

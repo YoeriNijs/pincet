@@ -1,6 +1,6 @@
 {
   "name": "pincet",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "For precise array operations only",
   "repository": {
     "type": "git",
@@ -11,6 +11,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
+    "test:watch": "jest --watch --config jestconfig.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
