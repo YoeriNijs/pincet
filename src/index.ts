@@ -1,3 +1,5 @@
+export * from './internal/count';
+export * from './internal/empty';
 export * from './internal/find-any';
 export * from './internal/find-first';
 export * from './internal/find-last';

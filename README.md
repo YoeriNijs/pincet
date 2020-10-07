@@ -208,6 +208,35 @@ const result = pincet.replace<Person>(person, { gender: 'woman' });
 console.log(result); // { name: 'Bradley Edward Manning', gender: 'woman' }
 ```
 
+### Count values
+```
+const arr = ['one', ['two', ['three', 'four'], 'five']];
+const result = pincet.count(arr);
+console.log(result); // 5
+```
+
+You can specify a depth:
+```
+const arr1 = ['one', ['two', ['three', 'four'], 'five']];
+const result1 = pincet.count(arr1, 1);
+console.log(result1); // 4
+
+const arr2 = ['one', ['two', ['three', 'four'], 'five']];
+const result2 = pincet.count(arr2, 0);
+console.log(result2); // 2
+```
+
+Or just check for empty arrays:
+```
+const arr1: any[] = [[], []];
+const result1 = pincet.isEmpty(arr1);
+console.log(result1); // true
+
+const arr2: any[] = [[], ['value']];
+const result2 = pincet.isEmpty(arr2);
+console.log(result2); // false
+```
+
 ### Flatten
 Wait, one more thing: flatten to the rescue! By default all arrays are flatten.
 ```
