@@ -341,3 +341,6 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - Checkout locally
 - Run `npm install`
 - Run `npm run test`
+
+### Changelog
+Just check CHANGELOG.md to see the latest technical changes.
