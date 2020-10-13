@@ -8,5 +8,7 @@ export * from './internal/flatten';
 export * from './internal/is-equal';
 export * from './internal/map';
 export * from './internal/replace';
+export * from './internal/sort'
 export * from './internal/split-predicate';
 export * from './internal/unique';
+export * from './model';

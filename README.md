@@ -86,6 +86,25 @@ console.log(result); // [{ name: 'AdultC', age: 30 }]
 
 If you like syntactic sugar, you can use `pincet.findAny<Person>(people, predicate)` as well.
 
+### Distinct values
+```
+const arr = [0, 1, 1, 2, 3, 3];
+const result = pincet.unique<number>(arr);
+console.log(result); // [0, 1, 2, 3]
+```
+
+You can specify a depth as well:
+
+```
+const arr1 = [0, 0, 1, [1], 2, 3, [3]];
+const result1 = pincet.unique<number>(arr1);
+console.log(result1); // [0, 1, [1], 2, 3, [3]]
+
+const arr2 = [0, 0, 1, [1], 2, 3, [3]];
+const result2 = pincet.unique<number>(arr2, 1);
+console.log(result2); // [0, 1, 2, 3]
+```
+
 ### Split values
 Interested in more results? Just split it:
 
@@ -237,6 +256,51 @@ const result2 = pincet.isEmpty(arr2);
 console.log(result2); // false
 ```
 
+### Sort values
+Pincet provides a default sorting mechanism. By default, there are methods to sort on strings or numbers. For instance:
+
+```
+const arr = ['z', 'y', 'x'];
+const result = pincet.sort<string>(arr, byStringAsc());
+console.log(result); // ['x', 'y', 'z']
+```
+
+By default, Pincet does not flatten the array. If you want to, you can specify a depth:
+```
+const arr = [0, 1, [2]];
+const result = pincet.sort<number>(arr, byNumberDesc(), 1);
+console.log(result); // [2, 1, 0]
+```
+
+At the moment, Pincet provided the following sorters by default:
+- byStringAsc
+- byStringDesc
+- byNumberAsc
+- byNumberDesc
+
+You can, however, create your own sorter by extending the Sorter interface. The interface is just a type safe wrapper 
+and holds a sorting function, that returns a number (just as the default comparator). Your implementation may look like this:
+
+```
+const myCustomSorter: Sorter<boolean> = { sort: (a, b) => a === b ? 1 : -1 };
+```
+
+You then may call it like:
+
+```
+const arr = [false, false, true, false, true];
+const result = sort<boolean>(arr, myCustomSorter);
+console.log(result); // [true, true, false, false, false]
+```
+
+Of course, Pincet supports nested arrays as well. Just pass a depth:
+
+```
+const arr = [false, [false], true, [false, [true]]];
+const result = sort<boolean>(arr, myCustomSorter, 2);
+console.log(result); // [true, true, false, false, false]
+```
+
 ### Flatten
 Wait, one more thing: flatten to the rescue! By default all arrays are flatten.
 ```
@@ -270,6 +334,7 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `replaceAllWithPredicate<T>(originalValues: T[], newValue: Partial<T>, predicate: (value: T) => boolean)`
 - `count(values: any[], depth: number = Infinity)`
 - `isEmpty(values: any[])`
+- `unique<T>(values: any[], depth = 0)`
 
 ## Run tests
 - Checkout locally
