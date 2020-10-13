@@ -335,6 +335,7 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `count(values: any[], depth: number = Infinity)`
 - `isEmpty(values: any[])`
 - `unique<T>(values: any[], depth = 0)`
+- `sort<T>(values: any[], sorter: Sorter<T>, depth = 0)`
 
 ## Run tests
 - Checkout locally
