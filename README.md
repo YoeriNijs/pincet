@@ -261,14 +261,14 @@ Pincet provides a default sorting mechanism. By default, there are methods to so
 
 ```
 const arr = ['z', 'y', 'x'];
-const result = pincet.sort<string>(arr, byStringAsc());
+const result = pincet.sort<string>(arr, byStringAsc);
 console.log(result); // ['x', 'y', 'z']
 ```
 
 By default, Pincet does not flatten the array. If you want to, you can specify a depth:
 ```
 const arr = [0, 1, [2]];
-const result = pincet.sort<number>(arr, byNumberDesc(), 1);
+const result = pincet.sort<number>(arr, byNumberDesc, 1);
 console.log(result); // [2, 1, 0]
 ```
 
@@ -289,7 +289,7 @@ You then may call it like:
 
 ```
 const arr = [false, false, true, false, true];
-const result = sort<boolean>(arr, myCustomSorter);
+const result = pincet.sort<boolean>(arr, myCustomSorter);
 console.log(result); // [true, true, false, false, false]
 ```
 
@@ -297,7 +297,7 @@ Of course, Pincet supports nested arrays as well. Just pass a depth:
 
 ```
 const arr = [false, [false], true, [false, [true]]];
-const result = sort<boolean>(arr, myCustomSorter, 2);
+const result = pincet.sort<boolean>(arr, myCustomSorter, 2);
 console.log(result); // [true, true, false, false, false]
 ```
 
