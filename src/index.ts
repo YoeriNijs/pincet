@@ -1,3 +1,4 @@
+export * from './internal/contains';
 export * from './internal/count';
 export * from './internal/empty';
 export * from './internal/find-any';

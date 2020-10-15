@@ -86,6 +86,13 @@ console.log(result); // [{ name: 'AdultC', age: 30 }]
 
 If you like syntactic sugar, you can use `pincet.findAny<Person>(people, predicate)` as well.
 
+You can also check if a (nested) array contains a value:
+```
+const arr = ['do', ['re'], 'mi'];
+const result = pincet.contains<string>(arr, 're');
+console.log(result); // true
+```
+
 ### Distinct values
 ```
 const arr = [0, 1, 1, 2, 3, 3];
