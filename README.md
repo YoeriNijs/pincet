@@ -234,6 +234,35 @@ const result = pincet.replace<Person>(person, { gender: 'woman' });
 console.log(result); // { name: 'Bradley Edward Manning', gender: 'woman' }
 ```
 
+### Remove values
+With Pincet, it is easy to remove a value from a (nested) array:
+
+```
+const arr = [0, 1, 2, 3];
+const result = pincet.remove<number>(arr, 2);
+console.log(result); // [0, 1, 3]
+```
+
+By default, Pincet respects nested arrays. Only when the removal operations leads to an empty array, the array will be filtered out:
+
+```
+const arr1 = [0, 1, [2], 3];
+const result1 = pincet.remove<number>(arr1, 2);
+console.log(result1); // [0, 1, 3]
+
+const arr2 = [0, 1, [[2], 3]];
+const result2 = pincet.remove<number>(arr2, 2);
+console.log(result2); // [0, 1, [3]]
+```
+
+If you want, you can remove a value and flatten the array directly by using flatRemove:
+
+```
+const arr = [0, 1, [[2], 3]];
+const result = pincet.flatRemove<number>(arr, 2);
+console.log(result); // [0, 1, 3]
+```
+
 ### Count values
 ```
 const arr = ['one', ['two', ['three', 'four'], 'five']];
