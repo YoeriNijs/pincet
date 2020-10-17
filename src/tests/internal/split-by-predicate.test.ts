@@ -1,4 +1,4 @@
-import {splitByPredicate} from "../internal/split-predicate";
+import {splitByPredicate} from "../../internal/split-predicate";
 
 interface Valid {
     valid: true;

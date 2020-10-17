@@ -1,4 +1,4 @@
-import {flatten} from "../internal/flatten";
+import {flatten} from "../../internal/flatten";
 
 test('It should flatten infinite', () => {
    const arr = ['aap', ['noot'], [[['mies']]]];

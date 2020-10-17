@@ -1,4 +1,4 @@
-import { flatMap, map } from "../internal/map";
+import { flatMap, map } from "../../internal/map";
 
 test('It should map according to the provided function', () => {
     const arr = [0, 1, 2];

@@ -1,6 +1,6 @@
 {
   "name": "pincet",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "For precise array operations only",
   "author": "Yoeri Nijs",
   "repository": {
@@ -30,7 +30,14 @@
   "files": [
     "lib/**/*"
   ],
-  "keywords": ["array", "flatten", "utility", "collections", "split", "predicate"],
+  "keywords": [
+    "array",
+    "flatten",
+    "utility",
+    "collections",
+    "split",
+    "predicate"
+  ],
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "husky": "^4.3.0",

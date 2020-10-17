@@ -1,5 +1,5 @@
-import { byNumberAsc, byNumberDesc, byStringAsc, byStringDesc, sort } from "../internal/sort";
-import {Sorter} from "../model";
+import { byNumberAsc, byNumberDesc, byStringAsc, byStringDesc, sort } from "../../internal/sort";
+import {Sorter} from "../../model";
 
 it('Should sort strings properly with asc', () => {
     const arr = ['z', 'y', 'x'];

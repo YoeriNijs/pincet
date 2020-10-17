@@ -1,4 +1,4 @@
-import { findFirstNumber } from "../internal/find-first";
+import { findFirstNumber } from "../../internal/find-first";
 
 test('Should pick the first one of an array', () => {
     const arr = ['one', 'two', 'three'];

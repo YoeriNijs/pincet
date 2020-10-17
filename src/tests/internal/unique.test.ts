@@ -1,4 +1,4 @@
-import {unique} from "../internal/unique";
+import {unique} from "../../internal/unique";
 
 test('It should filter unique values without depth', () => {
     const arr = [0, 1, 1, 2, 3, 3];

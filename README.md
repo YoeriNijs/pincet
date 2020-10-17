@@ -292,6 +292,8 @@ const result2 = pincet.isEmpty(arr2);
 console.log(result2); // false
 ```
 
+There is also an experimental Count decorator. Please see 'supported decorators' in this readme.
+
 ### Sort values
 Pincet provides a default sorting mechanism. By default, there are methods to sort on strings or numbers. For instance:
 
@@ -392,6 +394,32 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 ##### Remove
 - `remove<T>(values: any[], value: T)`
 - `flatRemove<T>(values: any[], value: T)`
+
+## Supported decorators (experimental)
+To enable the experimental decorators, set `experimentalDecorators` in your tsconfig to true.
+
+##### Count
+By default, the count decorator flattens the whole array. However, you can specify an optional depth.
+
+```
+class HostDecorator {
+
+    @Count()
+    allValues: unknown[];
+
+    @Count(1)
+    valuesWithDepthOne: unknown[];
+
+    constructor(...values: unknown[]) {
+        this.allValues = values;
+        this.valuesWithDepthOne = values;
+    }
+}
+
+const host = new HostDecorator('aap', 'noot', ['mies', ['wim', ['zus']]]);
+console.log(host.allValues); // 5
+console.log(host.valuesWithDepthOne); // 4
+```
 
 ## Run tests
 - Checkout locally

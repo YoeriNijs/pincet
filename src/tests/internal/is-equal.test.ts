@@ -1,4 +1,4 @@
-import {isEqual} from "../internal/is-equal";
+import {isEqual} from "../../internal/is-equal";
 
 test('Same arrays should be equal', () => {
     const arr1 = ['aap', 'noot', 'mies'];

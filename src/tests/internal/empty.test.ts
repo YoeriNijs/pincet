@@ -1,4 +1,4 @@
-import {isEmpty} from "../internal/empty";
+import {isEmpty} from "../../internal/empty";
 
 test('It should return true when an array is empty', () => {
    const arr: any[] = [];

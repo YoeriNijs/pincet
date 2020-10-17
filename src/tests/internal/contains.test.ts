@@ -1,4 +1,4 @@
-import { contains } from "../internal/contains";
+import { contains } from "../../internal/contains";
 
 test('It should return true when the value is in the array', () => {
     const arr = ['do', 're', 'mi'];

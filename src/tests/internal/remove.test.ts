@@ -1,4 +1,4 @@
-import { flatRemove, remove } from "../internal/remove";
+import { flatRemove, remove } from "../../internal/remove";
 
 describe('#remove', () => {
     test('It should remove a value from an array', () => {

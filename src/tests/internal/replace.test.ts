@@ -1,4 +1,4 @@
-import {replace, replaceAll, replaceAllWithPredicate, replaceWithPredicate} from "../internal/replace";
+import {replace, replaceAll, replaceAllWithPredicate, replaceWithPredicate} from "../../internal/replace";
 
 interface Person {
     name: string;

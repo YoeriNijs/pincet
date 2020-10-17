@@ -1,3 +1,4 @@
+export * from './decorators/count';
 export * from './internal/contains';
 export * from './internal/count';
 export * from './internal/empty';

@@ -1,3 +1,6 @@
+### 0.2.10
+- Added experimental support for count decorator
+
 ### 0.2.6
 - Added contains option to verify whether a value is in a (nested) array
 - Added remove option to remove values from a (nested) array

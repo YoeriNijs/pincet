@@ -1,4 +1,4 @@
-import { findLastNumber } from "../internal/find-last";
+import { findLastNumber } from "../../internal/find-last";
 
 test('Should pick the last one of an array', () => {
     const arr = ['one', 'two', 'three'];

@@ -1,4 +1,4 @@
-import { count } from "../internal/count";
+import { count } from "../../internal/count";
 
 test('It should count nested arrays when no depth is provided', () => {
     const arr = ['one', ['two', ['three', 'four'], 'five']];

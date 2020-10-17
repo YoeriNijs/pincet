@@ -1,4 +1,4 @@
-import {findWithPredicate} from "../internal/find-predicate";
+import {findWithPredicate} from "../../internal/find-predicate";
 
 interface Person {
     name: string,
