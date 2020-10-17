@@ -1,4 +1,4 @@
-import {findAny} from "../../index";
+import {findAny} from "../../internal/find-any";
 
 interface Creature {
     name: string
