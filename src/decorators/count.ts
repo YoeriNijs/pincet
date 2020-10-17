@@ -1,7 +1,7 @@
 import { count } from "../internal/count";
 
 /**
- *  EXPIRIMENTAL: property decorator for counting values
+ *  EXPERIMENTAL: property decorator for counting values
  */
 export function Count<T>(depth: number = Infinity) {
     return (target: any, propertyKey: string) => {
