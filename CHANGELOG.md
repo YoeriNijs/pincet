@@ -1,3 +1,6 @@
+### 0.2.11
+- Added the possibility to add multiple values to contains
+
 ### 0.2.10
 - Added experimental support for count decorator
 

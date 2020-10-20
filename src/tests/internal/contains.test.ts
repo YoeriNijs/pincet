@@ -29,3 +29,27 @@ test('It should return false when the value is not in a nested array', () => {
     const result = contains<string>(arr, 'fa');
     expect(result).toBe(false);
 });
+
+it('It should return true if one of the expecting values is in the array', () => {
+    const arr = ['do', 're', 'mi'];
+    const result = contains<string>(arr, 'fa', 'do');
+    expect(result).toBe(true);
+});
+
+it('It should return true if one of the expecting values is in a nested array', () => {
+    const arr = [['do'], 're', 'mi'];
+    const result = contains<string>(arr, 'fa', 'do');
+    expect(result).toBe(true);
+});
+
+it('It should return true if all values are not in the array', () => {
+    const arr = ['do', 're', 'mi'];
+    const result = contains<string>(arr, 'fa', 'so');
+    expect(result).toBe(false);
+});
+
+it('It should return true if both values are in the array', () => {
+    const arr = ['do', 're', 'mi'];
+    const result = contains<string>(arr, 'do', 're');
+    expect(result).toBe(true);
+});

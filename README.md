@@ -93,6 +93,13 @@ const result = pincet.contains<string>(arr, 're');
 console.log(result); // true
 ```
 
+Optionally, you can pass multiple values. If one of the values is in the array, the contains method returns true:
+```
+const arr = ['do', 're', 'mi', 'fa'];
+const result = pincet.contains<string>(arr, 'so', 'la', 'ti', 'do');
+console.log(result); // true
+```
+
 ### Distinct values
 ```
 const arr = [0, 1, 1, 2, 3, 3];
@@ -362,7 +369,7 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `findLastNumber<T>(values: T[], nValues: number)`
 - `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean)`
 - `findAny<T>(values: T[], guard: (value: T) => boolean)`
-- `contains<T>(values: unknown[], value: T)`
+- `contains<T>(values: unknown[], ...value: T)`
 
 ##### Split
 - `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
