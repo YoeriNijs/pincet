@@ -1,3 +1,6 @@
+### 0.2.12
+- Added containsAll support
+
 ### 0.2.11
 - Added the possibility to add multiple values to contains
 

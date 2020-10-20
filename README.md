@@ -86,6 +86,7 @@ console.log(result); // [{ name: 'AdultC', age: 30 }]
 
 If you like syntactic sugar, you can use `pincet.findAny<Person>(people, predicate)` as well.
 
+### Check for values
 You can also check if a (nested) array contains a value:
 ```
 const arr = ['do', ['re'], 'mi'];
@@ -98,6 +99,20 @@ Optionally, you can pass multiple values. If one of the values is in the array, 
 const arr = ['do', 're', 'mi', 'fa'];
 const result = pincet.contains<string>(arr, 'so', 'la', 'ti', 'do');
 console.log(result); // true
+```
+
+If you want to check if multiple values exist in an array, you can use `pincet.containsAll()`:
+```
+const arr = ['aap', 'noot', 'mies', 'wim'];
+const result = pincet.containsAll<string>(arr, 'mies', 'wim');
+console.log(result); // true
+```
+
+Hence:
+```
+const arr = ['aap', 'noot', 'mies'];
+const result = pincet.containsAll<string>(arr, 'mies', 'wim');
+console.log(result); // false
 ```
 
 ### Distinct values
@@ -370,6 +385,7 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean)`
 - `findAny<T>(values: T[], guard: (value: T) => boolean)`
 - `contains<T>(values: unknown[], ...value: T)`
+- `containsAll<T>(values: unknown[], ...value: T[])`
 
 ##### Split
 - `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
