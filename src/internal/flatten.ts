@@ -1,5 +1,5 @@
 import {flatDeep} from "../util/flat-deep";
 
-export function flatten(values: any[], depth: number = Infinity) {
-    return flatDeep(values, depth);
+export function flatten<T>(values: any[], depth: number = Infinity): T[] {
+    return flatDeep<T>(values, depth);
 }

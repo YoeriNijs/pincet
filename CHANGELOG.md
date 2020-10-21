@@ -1,3 +1,6 @@
+### 0.3.0
+- Added more strict generic support
+
 ### 0.2.12
 - Added containsAll support
 

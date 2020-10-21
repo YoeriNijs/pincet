@@ -13,5 +13,5 @@ export function remove<T>(values: any[], value: T): T[] {
 }
 
 export function flatRemove<T>(values: any[], value: T): T[] {
-    return remove<T>(flatDeep(values, Infinity), value);
+    return remove<T>(flatDeep<T>(values, Infinity), value);
 }

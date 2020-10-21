@@ -365,58 +365,58 @@ console.log(result); // [true, true, false, false, false]
 Wait, one more thing: flatten to the rescue! By default all arrays are flatten.
 ```
 const arr = ['aap', ['noot'], [[['mies']]]];
-const result = pincet.flatten(arr);
+const result = pincet.flatten<string>(arr);
 console.log(result); // ['aap', 'noot', 'mies']
 ```
 
 But you can specify a depth. For example:
 ```
 const arr = ['aap', ['noot'], [[['mies']]]];
-const result = pincet.flatten(arr, 1);
+const result = pincet.flatten<string>(arr, 1);
 console.log(result); // ['aap', 'noot', [['mies']]]
 ```
 
 ## Supported methods
 ##### Find
-- `findFirst<T>(values: T[])`
-- `findFirstNumber<T>(values: T[], nValues: number)`
-- `findLast<T>(values: T[])`
-- `findLastNumber<T>(values: T[], nValues: number)`
-- `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean)`
-- `findAny<T>(values: T[], guard: (value: T) => boolean)`
-- `contains<T>(values: unknown[], ...value: T)`
-- `containsAll<T>(values: unknown[], ...value: T[])`
+- `findFirst<T>(values: T[]): T`
+- `findFirstNumber<T>(values: T[], nValues: number): T[]`
+- `findLast<T>(values: T[]): T`
+- `findLastNumber<T>(values: T[], nValues: number): T[]`
+- `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean): T[]`
+- `findAny<T>(values: T[], guard: (value: T) => boolean): T[]`
+- `contains<T>(values: unknown[], ...value: T): boolean`
+- `containsAll<T>(values: unknown[], ...value: T[]): boolean`
 
 ##### Split
 - `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
 
 ##### Flat
-- `flatten(values: any[], depth: number = Infinity)`
+- `flatten<T>(values: any[], depth: number = Infinity): T[]`
 
 ##### Compare
 - `isEqual<T>(...arrays: T[][]): boolean`
 
 ##### Map
-- `map<S, T>(values: S[], fn: (v: S) => T)`
-- `flatMap<S, T>(values: any[], fn: ((v: S | S[]) => T | any) | ((v: S) => T), depth: number = Infinity)`
+- `map<S, T>(values: S[], fn: (v: S) => T): T[]`
+- `flatMap<S, T>(values: any[], fn: ((v: S | S[]) => T | any) | ((v: S) => T), depth: number = Infinity): T[]`
 
 ##### Replace
-- `replace<T>(original: T, newValue: Partial<T>)`
-- `replaceWithPredicate<T>(original: T, newValue: Partial<T>, predicate: (value: T) => boolean)`
-- `replaceAll<T>(originalValues: T[], newValue: Partial<T>)`
-- `replaceAllWithPredicate<T>(originalValues: T[], newValue: Partial<T>, predicate: (value: T) => boolean)`
+- `replace<T>(original: T, newValue: Partial<T>): T`
+- `replaceWithPredicate<T>(original: T, newValue: Partial<T>, predicate: (value: T) => boolean): T`
+- `replaceAll<T>(originalValues: T[], newValue: Partial<T>): T[]`
+- `replaceAllWithPredicate<T>(originalValues: T[], newValue: Partial<T>, predicate: (value: T) => boolean): T[]`
 
 ##### Count
-- `count(values: any[], depth: number = Infinity)`
-- `isEmpty(values: any[])`
-- `unique<T>(values: any[], depth = 0)`
+- `count(values: any[], depth: number = Infinity): number`
+- `isEmpty(values: any[]): boolean`
+- `unique<T>(values: any[], depth = 0): T[]`
 
 ##### Sort
-- `sort<T>(values: any[], sorter: Sorter<T>, depth = 0)`
+- `sort<T>(values: any[], sorter: Sorter<T>, depth = 0): T[]`
 
 ##### Remove
-- `remove<T>(values: any[], value: T)`
-- `flatRemove<T>(values: any[], value: T)`
+- `remove<T>(values: any[], value: T): T[]`
+- `flatRemove<T>(values: any[], value: T): T[]`
 
 ## Supported decorators (experimental)
 To enable the experimental decorators, set `experimentalDecorators` in your tsconfig to true.

@@ -5,5 +5,5 @@ export function map<S, T>(values: S[], fn: (v: S) => T): T[] {
 }
 
 export function flatMap<S, T>(values: any[], fn: ((v: S | S[]) => T | any) | ((v: S) => T), depth: number = Infinity): T[] {
-    return Array.from(flatDeep(values, depth), fn);
+    return Array.from(flatDeep<S>(values, depth), fn);
 }

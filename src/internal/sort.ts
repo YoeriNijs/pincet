@@ -9,5 +9,5 @@ export const byNumberAsc: Sorter<number> = { sort: sortByNumberAsc };
 export const byNumberDesc: Sorter<number> = { sort: sortByNumberDesc };
 
 export function sort<T>(values: any[], sorter: Sorter<T>, depth = 0): T[] {
-    return flatDeep(values, depth).sort(sorter.sort);
+    return flatDeep<T>(values, depth).sort(sorter.sort);
 }
