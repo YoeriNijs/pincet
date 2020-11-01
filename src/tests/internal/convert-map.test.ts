@@ -42,8 +42,8 @@ test('It should map name and create new arrays', () => {
 
     const result = convertMap<Person, 'name'>(arr, 'name');
     expect(result).toEqual([
-        ['PersonA', 'PersonB', 'PersonC'],
-        ['PersonD', 'PersonE', 'PersonF']
+        ['personA', 'personB', 'personC'],
+        ['personD', 'personE', 'personF']
     ]);
 });
 
