@@ -1,11 +1,11 @@
 import { flatDeep } from "../util/flat-deep";
 
-export function findFirst<T>(values: T[]): T | undefined {
+export function findFirst<T>(values: any[]): T | undefined {
     const result = getValues<T>(values, 1);
     return result && result.length === 1 ? result[0] : undefined;
 }
 
-export function findFirstNumber<T>(values: T[], nValues: number): T[] | undefined {
+export function findFirstNumber<T>(values: any[], nValues: number): T[] | undefined {
     const result = getValues<T>(values, nValues);
     return result && result.length <= nValues ? result : undefined;
 }

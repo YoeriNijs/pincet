@@ -403,10 +403,10 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 
 ## Supported methods
 ##### Find
-- `findFirst<T>(values: T[]): T`
-- `findFirstNumber<T>(values: T[], nValues: number): T[]`
-- `findLast<T>(values: T[]): T`
-- `findLastNumber<T>(values: T[], nValues: number): T[]`
+- `findFirst<T>(values: any[]): T`
+- `findFirstNumber<T>(values: any[], nValues: number): T[]`
+- `findLast<T>(values: any[]): T`
+- `findLastNumber<T>(values: any[], nValues: number): T[]`
 - `findWithPredicate<T>(values: T[], predicate: (value: T) => boolean): T[]`
 - `findAny<T>(values: T[], guard: (value: T) => boolean): T[]`
 - `contains<T>(values: unknown[], ...value: T): boolean`
