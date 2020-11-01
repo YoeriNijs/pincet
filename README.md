@@ -215,6 +215,31 @@ const result = pincet.flatMap<string, string>(arr, fn, 1);
 console.log(result); // ['wim', ['noot', ['mies']]]
 ```
 
+If you want, Pincet supports mapping and converting values at once via the convertMap function:
+```
+
+interface Person {
+    name: string,
+    age: number
+}
+
+const arr: Person[][] = [
+    [
+        { name: 'personA', age: 30 },
+        { name: 'personB', age: 31 },
+        { name: 'personC', age: 32 }
+    ],
+    [
+        { name: 'personD', age: 40 },
+        { name: 'personE', age: 41 },
+        { name: 'personF', age: 42 }
+    ]
+];
+
+const result = pincet.convertMap<Person, 'age'>(arr, 'age');
+console.log(result); // [[30, 31, 32], [40, 41, 42]]
+```
+
 ### Replace values
 Sometimes, you want to replace some values. Well, now you can with ease!
 ```
@@ -399,6 +424,7 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 ##### Map
 - `map<S, T>(values: S[], fn: (v: S) => T): T[]`
 - `flatMap<S, T>(values: any[], fn: ((v: S | S[]) => T | any) | ((v: S) => T), depth: number = Infinity): T[]`
+- `convertMap<S, K extends keyof S>(values: S[][], key: K): K[][]`
 
 ##### Replace
 - `replace<T>(original: T, newValue: Partial<T>): T`

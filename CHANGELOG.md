@@ -1,3 +1,7 @@
+### 0.3.1
+- Methods that return a boolean, are now readonly
+- Added convertMap support
+
 ### 0.3.0
 - Added more strict generic support
 
