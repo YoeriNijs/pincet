@@ -470,6 +470,48 @@ console.log(host.allValues); // 5
 console.log(host.valuesWithDepthOne); // 4
 ```
 
+##### Empty
+The empty decorator returns true when there are no values.
+
+```
+class HostDecorator {
+
+    @Empty()
+    values: string[];
+
+    constructor(values: string[]) {
+        this.values = values;
+    }
+}
+
+const host1 = new HostDecorator([]);
+console.log(host1.values); // true
+
+const host2 = new HostDecorator(['aap']);
+console.log(host2.values); // false
+```
+
+##### Not empty
+The not empty decorator returns true when there are values.
+
+```
+class HostDecorator {
+
+    @NotEmpty()
+    values: string[];
+
+    constructor(values: string[]) {
+        this.values = values;
+    }
+}
+
+const host1 = new HostDecorator(['aap']);
+console.log(host1.values); // true
+
+const host2 = new HostDecorator([]);
+console.log(host2.values); // false
+```
+
 ## Run tests
 - Checkout locally
 - Run `npm install`

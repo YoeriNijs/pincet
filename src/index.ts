@@ -1,4 +1,6 @@
 export * from './decorators/count';
+export * from './decorators/empty';
+export * from './decorators/not-empty';
 export * from './internal/contains';
 export * from './internal/convert-map';
 export * from './internal/count';

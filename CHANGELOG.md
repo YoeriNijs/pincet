@@ -1,3 +1,7 @@
+### 0.3.2
+- Added experimental empty decorator
+- Added experimental not empty decorator
+
 ### 0.3.1
 - Methods that return a boolean, are now readonly
 - Added convertMap support
