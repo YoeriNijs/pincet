@@ -339,7 +339,7 @@ const result2 = pincet.isEmpty(arr2);
 console.log(result2); // false
 ```
 
-There is also an experimental Count decorator. Please see 'supported decorators' in this readme.
+There is also a Count decorator. Please see 'supported decorators' in this readme.
 
 ### Sort values
 Pincet provides a default sorting mechanism. By default, there are methods to sort on strings or numbers. For instance:
@@ -444,20 +444,48 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `remove<T>(values: any[], value: T): T[]`
 - `flatRemove<T>(values: any[], value: T): T[]`
 
-## Supported decorators (experimental)
-To enable the experimental decorators, set `experimentalDecorators` in your tsconfig to true.
+## Supported decorators
+To enable the Pincet decorators, set `experimentalDecorators` in your tsconfig to true. This means that Typescript accepts custom decorators.
+
+##### Flatten
+When you are only interested in a flat array, then you can use the Flatten decorator. It does exactly what is says:
+
+```
+class Host<T> {
+    @Flatten<T>() values: T[];
+
+    constructor(...values: any[]) {
+        this.values = values;
+    }
+}
+
+const host = new Host<string>(['aap', ['noot', ['mies']]]);
+console.log(host.values); // ['aap', 'noot', 'mies']
+```
+Of course, with Pincet, you can almost always specify an optional depth:
+
+```
+class Host<T> {
+    @Flatten<T[]>(2) values: T[];
+
+    constructor(...values: any[]) {
+        this.values = values;
+    }
+}
+
+const host = new Host<string>(['aap', ['noot', ['mies']]]);
+console.log(host.values); // ['aap', 'noot', ['mies']]
+```
 
 ##### Count
 By default, the count decorator flattens the whole array. However, you can specify an optional depth.
 
 ```
-class HostDecorator {
+class Host {
 
-    @Count()
-    allValues: unknown[];
+    @Count() allValues: unknown[];
 
-    @Count(1)
-    valuesWithDepthOne: unknown[];
+    @Count(1) valuesWithDepthOne: unknown[];
 
     constructor(...values: unknown[]) {
         this.allValues = values;
@@ -465,7 +493,7 @@ class HostDecorator {
     }
 }
 
-const host = new HostDecorator('aap', 'noot', ['mies', ['wim', ['zus']]]);
+const host = new Host('aap', 'noot', ['mies', ['wim', ['zus']]]);
 console.log(host.allValues); // 5
 console.log(host.valuesWithDepthOne); // 4
 ```
@@ -474,20 +502,19 @@ console.log(host.valuesWithDepthOne); // 4
 The empty decorator returns true when there are no values.
 
 ```
-class HostDecorator {
+class Host {
 
-    @Empty()
-    values: string[];
+    @Empty() values: string[];
 
     constructor(values: string[]) {
         this.values = values;
     }
 }
 
-const host1 = new HostDecorator([]);
+const host1 = new Host([]);
 console.log(host1.values); // true
 
-const host2 = new HostDecorator(['aap']);
+const host2 = new Host(['aap']);
 console.log(host2.values); // false
 ```
 
@@ -495,20 +522,19 @@ console.log(host2.values); // false
 The not empty decorator returns true when there are values.
 
 ```
-class HostDecorator {
+class Host {
 
-    @NotEmpty()
-    values: string[];
+    @NotEmpty() values: string[];
 
     constructor(values: string[]) {
         this.values = values;
     }
 }
 
-const host1 = new HostDecorator(['aap']);
+const host1 = new Host(['aap']);
 console.log(host1.values); // true
 
-const host2 = new HostDecorator([]);
+const host2 = new Host([]);
 console.log(host2.values); // false
 ```
 

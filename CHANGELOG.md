@@ -1,3 +1,7 @@
+### 0.4.0
+- Removed experimental decorator flags
+- Added flatten decorator
+
 ### 0.3.2
 - Added experimental empty decorator
 - Added experimental not empty decorator

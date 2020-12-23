@@ -1,9 +1,5 @@
 import { isEmpty } from "../internal/empty";
 
-/**
- *  EXPERIMENTAL: property decorator for
- *  checking if a value is not empty
- */
 export function NotEmpty() {
     return (target: any, propertyKey: string) => {
         let value: any[];

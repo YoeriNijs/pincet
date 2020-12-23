@@ -2,11 +2,9 @@ import { Count } from "../../decorators/count";
 
 class HostDecorator {
 
-    @Count()
-    allValues: unknown[];
+    @Count() allValues: unknown[];
 
-    @Count(1)
-    valuesWithDepthOne: unknown[];
+    @Count(1) valuesWithDepthOne: unknown[];
 
     constructor(...values: unknown[]) {
         this.allValues = values;

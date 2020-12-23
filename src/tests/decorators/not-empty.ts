@@ -2,8 +2,7 @@ import { NotEmpty } from "../../decorators/not-empty";
 
 class HostDecorator {
 
-    @NotEmpty()
-    values: unknown[];
+    @NotEmpty() values: unknown[];
 
     constructor(...values: unknown[]) {
         this.values = values;
