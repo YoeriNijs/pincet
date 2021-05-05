@@ -1,3 +1,6 @@
+### 0.4.1
+- Added containsPartial support
+
 ### 0.4.0
 - Removed experimental decorator flags
 - Added flatten decorator

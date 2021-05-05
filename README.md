@@ -115,6 +115,32 @@ const result = pincet.containsAll<string>(arr, 'mies', 'wim');
 console.log(result); // false
 ```
 
+You can also verify whether an array contains a partial value. This works for nested arrays as well. Example:
+```
+interface TestObject {
+    value: string;
+    isString: boolean;
+}
+
+const values: TestObject[] = [
+    { value: 'aap', isString: true },
+    { value: 'noot', isString: true }
+];
+const result = pincet.containsPartial<TestObject>(values, { value: 'aap' });
+console.log(result); // true
+```
+
+Or: 
+
+```
+const values: TestObject[] = [
+    { value: 'aap', isString: true },
+    { value: 'noot', isString: true }
+];
+const result = pincet.containsPartial<TestObject>(values, { value: 'mies' });
+console.log(result); // false
+```
+
 ### Distinct values
 ```
 const arr = [0, 1, 1, 2, 3, 3];
@@ -411,6 +437,7 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 - `findAny<T>(values: T[], guard: (value: T) => boolean): T[]`
 - `contains<T>(values: unknown[], ...value: T): boolean`
 - `containsAll<T>(values: unknown[], ...value: T[]): boolean`
+- `containsPartial<T extends object>(values: object[], expectedPartial: Partial<T>): boolean`
 
 ##### Split
 - `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
