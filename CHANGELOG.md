@@ -1,3 +1,6 @@
+### 0.4.2
+- Added union, unionWith, flatUnion and flatUnionWith support
+
 ### 0.4.1
 - Added containsPartial support
 

@@ -199,6 +199,39 @@ const predicate = (value: any) => !value.valid;
 const [invalid, valid] = pincet.splitByPredicate<Invalid, Valid, any>(arr, predicate);
 ```
 
+### Union values
+Do you want to union some arrays? There are some Pincet functions for that!
+
+```
+const first: string[] = ['aap', 'noot'];
+const second: string[] = ['mies'];
+const result = union<string>(first, second);
+console.log(result); // ['aap', 'noot', 'mies']
+```
+
+Or with predicate:
+
+```
+interface Person {
+	name: string;
+	age: number
+}
+
+const first: Person[] = [
+    { name: 'Harry Potter', age: 18 }
+];
+const second: Person[] = [
+    { name: 'Severus Snape', age: 38 },
+    { name: 'Ronald Weasley', age: 18 }
+];
+const result = unionWith<Person>((p: Person) => p.age < 38, first, second);
+console.log(result); // [{ name: 'Harry Potter', age: 18 }, { name: 'Ronald Weasley', age: 18 }]
+```
+
+You can also flatten multidimensional arrays as once. For this, just use `flatUnion` or `flatUnionWith`.
+These methods do exactly the same as `union` and `unionWith`, but with the key difference that nested arrays are
+flattened first. The depth of nested arrays is infinite.
+
 ### Equality checking
 Interested in equality? There is a method for that!
 ```
@@ -441,6 +474,12 @@ console.log(result); // ['aap', 'noot', [['mies']]]
 
 ##### Split
 - `splitByPredicate<T1, T2, S>(values: any[], predicate: (value: S) => boolean): [T1[], T2[]]`
+
+##### Union
+- `union<T>(...list: T[][]): T[]`
+- `unionWith<T>(predicate: (v: T) => boolean, ...list: T[][]): T[]`
+- `flatUnion(...list: unknown[][]): unknown[]`
+- `flatUnionWith(predicate: (v: any) => boolean, ...list: unknown[]): unknown[]`
 
 ##### Flat
 - `flatten<T>(values: any[], depth: number = Infinity): T[]`

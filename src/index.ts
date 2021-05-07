@@ -17,5 +17,6 @@ export * from './internal/remove';
 export * from './internal/replace';
 export * from './internal/sort'
 export * from './internal/split-predicate';
+export * from './internal/union';
 export * from './internal/unique';
 export * from './model';
